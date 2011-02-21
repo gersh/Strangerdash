@@ -1,0 +1,3 @@
+<%= videostream(@video.token, "video_in") %>
+<%= videorecord(@video.token, "video_out")%> <br/>
+<%= link_to "next", "/video" + @video.id.to_s + "/next", :remote => true %>
