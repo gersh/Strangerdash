@@ -13,7 +13,7 @@ class Video < ActiveRecord::Base
       if ct == 0 then
         return false
       end
-      video = videos.find(:first, :offset => rand(video.size))
+      video = videos.find(:first, :offset => rand(videos.count))
     end until video.check_active()
   end
   protected
