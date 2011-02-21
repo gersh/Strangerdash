@@ -8,7 +8,7 @@ class Video < ActiveRecord::Base
   end
   def strangerConnect()
     begin
-      videos=Video.where("id <> ? AND active=1 AND self.connect_to = ?",self.id, nil)
+      videos=Video.where("id <> ? AND active=1 AND connected_to = ?",self.id, nil)
       ct = videos.count
       if ct == 0 then
         return false
