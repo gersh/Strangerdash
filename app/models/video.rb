@@ -28,5 +28,6 @@ class Video < ActiveRecord::Base
   private
     def generate_token
        self.token = Raydash.getToken()
+       self.active=0
     end
 end
