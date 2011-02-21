@@ -5,6 +5,9 @@ class VideosController < ApplicationController
   end
   def next()
     @video =Video.find(params[:id])
+    @video.active=1
+    @video.connected_to = nil
+    @video.save()
     @video.strangerConnect()
   end
 end
