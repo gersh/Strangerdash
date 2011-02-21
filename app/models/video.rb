@@ -19,8 +19,9 @@ class Video < ActiveRecord::Base
   protected
     def check_active()
       streamInfo=Raydash.getStreamInfo(self.token)
-      if streamInfo["active"] != self.active then
-        self.active=streamInfo["active"]
+      sActive = (streamInfo["active"] ? 1 : 0)
+      if sActive != self.active then
+        self.active= sActive
         self.save()
       end
       self.active
