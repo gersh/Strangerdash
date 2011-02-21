@@ -15,6 +15,8 @@ class Video < ActiveRecord::Base
       end
       video = videos.find(:first, :offset => rand(videos.count))
     end until video.check_active()
+    video.point_to(self.token)
+    self.point_to(video.token)
   end
   protected
     def check_active()
